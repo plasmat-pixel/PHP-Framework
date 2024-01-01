@@ -1,0 +1,9 @@
+name: php-framework
+recipe: lemp
+config:
+  php: '8.2'
+  database: postgres
+  password: 83312
+  portforward: 5432
+  user: postgres
+  webroot: public
