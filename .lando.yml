@@ -1,10 +1,10 @@
 name: php-framework
 recipe: lemp
 config:
-  php: '8.2'
   via: nginx
   config: 
-  vhosts: .lando/nginx.conf
+     vhosts: .lando/nginx.conf
+  php: '8.2'
   database: postgres
   password: 83312
   portforward: 5432
