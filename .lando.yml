@@ -4,7 +4,7 @@ config:
   php: '8.2'
   via: nginx
   config: 
-  vhost: .lando/nginx.conf
+  vhosts: .lando/nginx.conf
   database: postgres
   password: 83312
   portforward: 5432
