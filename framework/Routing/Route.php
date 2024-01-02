@@ -12,6 +12,7 @@ class Route implements RegistrarInterface
         return ['GET', $uri, $handler];
     }
 
+
     public static function post(string $uri, array $handler)
     {
         return ['POST', $uri, $handler];
