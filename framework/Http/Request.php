@@ -25,4 +25,9 @@ class Request
             return $_GET[$key];
         }
     }
+
+    public function getServer()
+    {
+        return $this->server;
+    }
 }
