@@ -23,8 +23,8 @@ class Kernel
         });
 
         $routeInfo = $dispatcher->dispatch(
-            $request->getServer()['REQUEST_METHOD'],
-            $request->getServer()['REQUEST_URI']
+            $request->getMethod(),
+            $request->getPath()
         );
 
         [$status, $handler, $vars] = $routeInfo;

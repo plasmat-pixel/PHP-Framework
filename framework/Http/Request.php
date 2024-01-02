@@ -17,17 +17,13 @@ class Request
         return new static($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
     }
 
-    public function getParams(string $key)
+    public function getPath(): string
     {
-        if (!isset($_GET[$key])) {
-            return "Key $key not found";
-        } else {
-            return $_GET[$key];
-        }
+        return strtok($this->server['REQUEST_URI'], '?');
     }
 
-    public function getServer()
+    public function getMethod(): string
     {
-        return $this->server;
+        return $this->server['REQUEST_METHOD'];
     }
 }
