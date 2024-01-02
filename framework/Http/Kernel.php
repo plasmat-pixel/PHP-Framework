@@ -2,6 +2,7 @@
 
 namespace Artem\PhpFramework\Http;
 
+use App\Controller\HomeController;
 use FastRoute\RouteCollector;
 
 
@@ -33,8 +34,8 @@ class Kernel
             $request->getPath()
         );
 
-        [$status, $handler, $vars] = $routeInfo;
-
-        return $handler($vars);
+        [$status, [$controller, $method], $vars] = $routeInfo;
+        $response = (new $controller())->$method($vars);
+        return $response;
     }
 }
