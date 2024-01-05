@@ -1,0 +1,19 @@
+{
+    "name": "artem/php-framework",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Artem\\PhpFramework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Artem Lepeschenko",
+            "email": "artemlepeshenko23@gmail.com"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}
