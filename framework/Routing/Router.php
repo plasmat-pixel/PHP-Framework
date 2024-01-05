@@ -38,12 +38,18 @@ class Router implements RouterInterface
             $request->getPath()
         );
 
-        $result =  match ($routeInfo[0]) {
+        return match ($routeInfo[0]) {
             Dispatcher::FOUND => [$routeInfo[1], $routeInfo[2]],
-            Dispatcher::METHOD_NOT_ALLOWED
-            => throw new MethodNotAllowedException("Supported HTTP Method: " . implode(',', $routeInfo[1])),
-            default => throw new RouteNotFoundException('Route not found'),
+            Dispatcher::METHOD_NOT_ALLOWED => [
+                $e = new MethodNotAllowedException("Supported HTTP Method: " . implode(',', $routeInfo[1])),
+                $e->setStatusCode(405),
+                throw $e
+            ],
+            default => [
+                $e = new RouteNotFoundException('Route not found'),
+                $e->setStatusCode(404),
+                throw $e
+            ],
         };
-        return $result;
     }
 }
