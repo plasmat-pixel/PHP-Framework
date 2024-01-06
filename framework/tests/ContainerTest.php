@@ -21,4 +21,12 @@ class ContainerTest extends TestCase
         $this->expectException(ContainerException::class);
         $container->add('no-class');
     }
+
+    public function test_has_method_exists()
+    {
+        $container = new Container();
+        $container->add('artem-class', ArtemClass::class);
+        $this->assertTrue($container->has('artem-class'));
+        $this->assertFalse($container->has('no-class'));
+    }
 }
