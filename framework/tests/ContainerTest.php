@@ -29,4 +29,13 @@ class ContainerTest extends TestCase
         $this->assertTrue($container->has('artem-class'));
         $this->assertFalse($container->has('no-class'));
     }
+
+    public function test_recursively_autowired()
+    {
+        $container = new Container();
+        $container->add('artem-class', ArtemClass::class);
+        /** ArtemClass $foo */
+        $foo = $container->get('artem-class');
+        $this->assertInstanceOf(Foo::class, $foo->getFoo());
+    }
 }
