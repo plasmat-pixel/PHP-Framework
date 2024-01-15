@@ -32,6 +32,31 @@ class Container implements ContainerInterface
         return $instance;
     }
 
+    private function resolve($class): null|object
+    {
+        /** сделал объект класса Reflection */
+
+        $reflectionClass = new \ReflectionClass($class);
+        /** создал получение метода конструктора класса Reflection */
+
+        $constructor = $reflectionClass->getConstructor();
+        /** сделал проверку на сушествование метода конструктора, если его нет создаю инстанс */
+        if (is_null($constructor)) {
+            return $reflectionClass->newInstance();
+        }
+        /** получение параметров конструктора */
+        $constructorParams = $constructor->getParameters();
+        /** получение зависимостей класса */
+        $classDependency = $this->resolveClassDependencies($constructorParams);
+        /** получение класса с зависимостями */
+        $instance =  $reflectionClass->newInstanceArgs($classDependency);
+        return $instance;
+    }
+
+    // private function resolveClassDependencies()
+    // {
+    // }
+
     public function has(string $id): bool
     {
         return isset($this->services[$id]);
