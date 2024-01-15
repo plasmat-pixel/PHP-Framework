@@ -5,9 +5,13 @@ namespace Artem\PhpFramework\Container;
 use Artem\PhpFramework\Container\Exceptions\ContainerException;
 use Psr\Container\ContainerInterface;
 
+/**
+ * класс Container создания с целью работы для внедрения зависимостей
+ */
 class Container implements ContainerInterface
 {
     private array $services = [];
+    /** метод для создания контейнера в нем происходит проверка $concrete and $id, а также присвание $services[] $concrete*/
     public function add(string $id, string|object $concrete = null)
     {
         if (is_null($concrete)) {
@@ -20,6 +24,7 @@ class Container implements ContainerInterface
         $this->services[$id] = $concrete;
     }
 
+    /** метод для получения контейнера */
     public function get(string $id)
     {
         if (!$this->has($id)) {
@@ -53,10 +58,20 @@ class Container implements ContainerInterface
         return $instance;
     }
 
-    // private function resolveClassDependencies()
-    // {
-    // }
+    private function resolveClassDependencies(array $constructorParams): array
+    {
+        $classDependencies = [];
+        /** @var \ReflectionParameter $constructorParam */
+        foreach ($constructorParams as $constructorParam) {
+            $serviceType = $constructorParam->getType();
+            /** @var \ReflectionNamedType $serviceType */
+            $service = $this->get($serviceType->getName());
+            $classDependencies[] = $service;
+        }
 
+        return $classDependencies;
+    }
+    /** метод для проверки существуют ли контейнер */
     public function has(string $id): bool
     {
         return isset($this->services[$id]);

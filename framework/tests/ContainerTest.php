@@ -36,6 +36,10 @@ class ContainerTest extends TestCase
         $container->add('artem-class', ArtemClass::class);
         /** ArtemClass $foo */
         $foo = $container->get('artem-class');
+
+        $artemClass = $foo->getFoo();
         $this->assertInstanceOf(Foo::class, $foo->getFoo());
+        $this->assertInstanceOf(Telegram::class, $artemClass->getTelegram());
+        $this->assertInstanceOf(Youtube::class, $artemClass->getYoutube());
     }
 }
