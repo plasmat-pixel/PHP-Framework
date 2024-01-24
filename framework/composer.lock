@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "924e31ba1fdda9bed92349adb048cb80",
+    "content-hash": "baf0426268b562b14171d5f700bc575c",
     "packages": [
         {
             "name": "league/container",
@@ -768,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c7a9a16a6a90bba560fedf604f19da42073959f4"
+                "reference": "f714b834069fd1d153a241d4bb39a393ca0d1d2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c7a9a16a6a90bba560fedf604f19da42073959f4",
-                "reference": "c7a9a16a6a90bba560fedf604f19da42073959f4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f714b834069fd1d153a241d4bb39a393ca0d1d2e",
+                "reference": "f714b834069fd1d153a241d4bb39a393ca0d1d2e",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +862,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-15T14:20:06+00:00"
+            "time": "2024-01-22T14:41:21+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -1803,6 +1803,80 @@
             "time": "2023-12-31T07:41:11+00:00"
         },
         {
+            "name": "symfony/dotenv",
+            "version": "7.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "f3e6a5e66a52313cb5405f3995726bd871eb6068"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/f3e6a5e66a52313cb5405f3995726bd871eb6068",
+                "reference": "f3e6a5e66a52313cb5405f3995726bd871eb6068",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "conflict": {
+                "symfony/console": "<6.4",
+                "symfony/process": "<6.4"
+            },
+            "require-dev": {
+                "symfony/console": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/dotenv/tree/7.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-01-08T12:57:37+00:00"
+        },
+        {
             "name": "symfony/polyfill-mbstring",
             "version": "1.x-dev",
             "source": {
@@ -1892,12 +1966,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "7d6e2e42a0edaddc7ee867be51470187a68c3cfe"
+                "reference": "a882c92e8e926d28e22923072297e6ba91a4c7b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/7d6e2e42a0edaddc7ee867be51470187a68c3cfe",
-                "reference": "7d6e2e42a0edaddc7ee867be51470187a68c3cfe",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/a882c92e8e926d28e22923072297e6ba91a4c7b2",
+                "reference": "a882c92e8e926d28e22923072297e6ba91a4c7b2",
                 "shasum": ""
             },
             "require": {
@@ -1967,7 +2041,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-06T14:28:46+00:00"
+            "time": "2024-01-17T15:30:39+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2024,7 +2098,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "phpunit/phpunit": 20,
-        "symfony/var-dumper": 20
+        "symfony/var-dumper": 20,
+        "symfony/dotenv": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
