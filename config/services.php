@@ -1,5 +1,6 @@
 <?php
 
+use Artem\PhpFramework\Controller\AbstractController;
 use League\Container\Container;
 use Twig\Loader\FilesystemLoader;
 use Artem\PhpFramework\Http\Kernel;
@@ -36,6 +37,11 @@ $container->add(Kernel::class)
 
 $container->addShared('twig-loader', FilesystemLoader::class)
     ->addArgument(new StringArgument($viewsPath));
-$container->addShared(Environment::class)->addArgument('twig-loader');
+$container->addShared('twig', Environment::class)
+    ->addArgument('twig-loader');
 
+$container->add(AbstractController::class)
+    ->addMethodCall('setContainer', [$container]);
+$container->inflector(AbstractController::class)
+    ->invokeMethod('setContainer', [$container]);
 return $container;
