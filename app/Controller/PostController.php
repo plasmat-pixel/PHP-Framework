@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
+use Artem\PhpFramework\Controller\AbstractController;
 use Artem\PhpFramework\Http\Response;
 
-class PostController
+class PostController extends AbstractController
 {
     public function show(int $id): Response
     {
-        $content = "<h1>Post - $id</h1>";
-        return new Response($content);
+        return $this->render('posts.html.twig', [
+            'PostId' => $id
+        ]);
     }
 }
