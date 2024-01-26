@@ -14,7 +14,7 @@ abstract class AbstractController
         $this->container = $container;
     }
 
-    public function render(string $view, array $parameters = [], Response $response = null): Response
+    public function render(string $view, array $parameters = [], ?Response $response = null): Response
     {
         /** @var Environment $twig */
         $twig = $this->container->get('twig');
