@@ -9,4 +9,3 @@ config:
   password: 83312
   portforward: 5432
   user: postgres
-  webroot: public
