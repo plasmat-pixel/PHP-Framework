@@ -15,7 +15,7 @@ use function FastRoute\simpleDispatcher;
 
 class Kernel
 {
-    private string $appEnv = 'local';
+    use Helper;
     public function __construct(
         private RouterInterface $router,
         private Container $container
@@ -31,18 +31,5 @@ class Kernel
             $response = $this->createExceptionResponse($e);
         }
         return $response;
-    }
-
-    private function createExceptionResponse(\Exception $e): Response
-    {
-        if (in_array($this->appEnv, ['local', 'testing'])) {
-            throw $e;
-        }
-
-        if ($e instanceof HttpException) {
-            return new Response($e->getMessage(), $e->getStatusCode());
-        }
-
-        return new Response('some server error', 500);
     }
 }
