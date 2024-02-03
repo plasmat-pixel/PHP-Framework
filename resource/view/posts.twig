@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Php Framework</title>
-</head>
-<body>
-<h1> Post - {{ PostId }}</h1><br>
-    
-</body>
-</html>
+{% extends 'default.twig' %}
+
+{% block main %}
+    <div class="bg-body-tertiary p-5 rounded">
+        <h1> Post - {{ PostId }}</h1><br>
+    </div>
+{% endblock %}
