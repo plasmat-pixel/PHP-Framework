@@ -8,4 +8,5 @@ use Artem\PhpFramework\Routing\Route;
 return [
     Route::get('/', [HomeController::class, 'index']),
     Route::get('/posts/{id}', [PostController::class, 'show']),
+    Route::get('/post/create', [PostController::class, 'create'])
 ];

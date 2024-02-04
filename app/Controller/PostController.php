@@ -13,4 +13,9 @@ class PostController extends AbstractController
             'PostId' => $id
         ]);
     }
+
+    public function create(): Response
+    {
+        return $this->render('create_posts.twig');
+    }
 }
