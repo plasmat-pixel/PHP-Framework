@@ -2,13 +2,22 @@
 
 namespace App\Controller;
 
+use App\Services\YoutubeService;
+use Artem\PhpFramework\Controller\AbstractController;
 use Artem\PhpFramework\Http\Response;
+use Twig\Environment;
 
-class HomeController
+class HomeController extends AbstractController
 {
+    public function __construct(
+        private readonly YoutubeService $youtubeService,
+    ) {
+    }
+
     public function index(): Response
     {
-        $content = '<h1>Some content</h1>';
-        return new Response($content);
+        return $this->render('home.twig', [
+            'YoutubeChanel' => $this->youtubeService->getChannelUrl()
+        ]);
     }
 }

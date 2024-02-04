@@ -2,33 +2,21 @@
 
 namespace Artem\PhpFramework\Routing;
 
-use Artem\PhpFramework\Http\Exceptions\MethodNotAllowedException;
-use Artem\PhpFramework\Http\Exceptions\RouteNotFoundException;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use Artem\PhpFramework\Http\Request;
-
 use function FastRoute\simpleDispatcher;
-use Artem\PhpFramework\Routing\RouteContracts\RouterInterface;
+use Artem\PhpFramework\Http\Exceptions\RouteNotFoundException;
+use Artem\PhpFramework\Http\Exceptions\MethodNotAllowedException;
 
-class Router implements RouterInterface
+trait RouterHelper
 {
-    public function dispatch(Request $request): array
-    {
-        [$handler, $vars] = $this->extractRouteInfo($request);
-
-        if (is_array($handler)) {
-            [$controller, $method] = $handler;
-            $handler = [new $controller, $method];
-        }
-        return [$handler, $vars];
-    }
+    private array $routes;
 
     private function extractRouteInfo(Request $request): array
     {
         $dispatcher = simpleDispatcher(function (RouteCollector $collector) {
-            $routes = include BASE_PATH . '/routes/web.php';
-            foreach ($routes as $route) {
+            foreach ($this->routes as $route) {
                 $collector->addRoute(...$route);
             }
         });
