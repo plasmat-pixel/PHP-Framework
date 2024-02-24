@@ -2,16 +2,9 @@
 
 namespace Artem\PhpFramework\Http;
 
-use App\Controller\HomeController;
-use Artem\PhpFramework\Http\Exceptions\HttpException;
-use Artem\PhpFramework\Http\Exceptions\MethodNotAllowedException;
-use Artem\PhpFramework\Http\Exceptions\RouteNotFoundException;
-use Artem\PhpFramework\Routing\RouteContracts\RouterInterface;
-use FastRoute\RouteCollector;
+use Doctrine\DBAL\Connection;
 use League\Container\Container;
-use Throwable;
-
-use function FastRoute\simpleDispatcher;
+use Artem\PhpFramework\Routing\RouteContracts\RouterInterface;
 
 class Kernel
 {

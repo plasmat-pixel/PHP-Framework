@@ -7,7 +7,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "framework/"
+            "url": "framework"
         }
     ],
     "require-dev": {
@@ -15,6 +15,7 @@
         "laravel/pint": "^1.13"
     },
     "require": {
+        "php": "^8.2",
        "artem/php-framework": "dev-main"
     }
 }

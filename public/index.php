@@ -1,13 +1,12 @@
 <?php
 
-use App\Someone;
+define('BASE_PATH',  dirname(__DIR__));
+require_once dirname(__DIR__) .  '/vendor/autoload.php';
+
 use League\Container\Container;
 use Artem\PhpFramework\Http\Kernel;
 use Artem\PhpFramework\Http\Request;
-use Artem\PhpFramework\Http\Response;
 
-define('BASE_PATH',  dirname(__DIR__));
-require_once dirname(__DIR__) .  '/vendor/autoload.php';
 $request = Request::createFromGlobals();
 /** @var Container $container */
 $container = require BASE_PATH . '/config/services.php';
